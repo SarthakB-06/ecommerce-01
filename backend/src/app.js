@@ -1,8 +1,15 @@
 import express from 'express';
+import cors from 'cors';
+
 
 const app =  new express();
 
 
+const corsOptions = {
+    origin : 'http://localhost:5173',
+    optionsSuccessStatus : 200
+}
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
