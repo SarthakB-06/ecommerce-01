@@ -133,18 +133,15 @@ const changeCurrentPassword = AsyncHandler(async (req,res)=>{
 })
 const getProducts = AsyncHandler(async (req,res)=>{
     const products = await Product.find({})
-    return res.status(200).json(
-        new ApiResponse(200, products, "Products retrieved successfully")
-    )
+    return res.json(products)
+    
 })
 const getProductById = AsyncHandler(async (req,res)=>{
     const product = await Product.findById(req.params.id)
     if(!product){
         throw new ApiError(404, "Product not found")
     }
-    return res.status(200).json(
-        new ApiResponse(200, product, "Product retrieved successfully")
-    )
+    return res.json(product)
 })
 
 const UserOrder = AsyncHandler(async (req,res)=>{

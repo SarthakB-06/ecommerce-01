@@ -1,14 +1,14 @@
-import { PRODUCT_LIST_REQ } from "../Constants/Product";
+import { PRODUCT_LIST_REQ } from "../Constants/Product.js";
 
-import { PRODUCT_LIST_SUCCESS } from "../Constants/Product";
+import { PRODUCT_LIST_SUCCESS } from "../Constants/Product.js";
 
-import { PRODUCT_LIST_FAIL } from "../Constants/Product";
+import { PRODUCT_LIST_FAIL } from "../Constants/Product.js";
 
-import { PRODUCT_DETAIL_REQ } from "../Constants/Product";
+import { PRODUCT_DETAIL_REQ } from "../Constants/Product.js";
 
-import { PRODUCT_DETAIL_SUCCESS } from "../Constants/Product";
+import { PRODUCT_DETAIL_SUCCESS } from "../Constants/Product.js";
 
-import { PRODUCT_DETAIL_FAIL } from "../Constants/Product";
+import { PRODUCT_DETAIL_FAIL } from "../Constants/Product.js";
 
 
 
@@ -17,7 +17,7 @@ export const ProductListReducer = (state = { products: [] }, action) => {
         case PRODUCT_LIST_REQ:
             return { loading: true, products: [] };
         case PRODUCT_LIST_SUCCESS:
-            return { loading: false, products: action.payload.products , totalPage: action.payload.totalPage , page: action.payload.page };
+            return { loading: false, products: action.payload , totalPage: action.payload.totalPage , page: action.payload.page };
         case PRODUCT_LIST_FAIL:
             return { loading: false, error: action.payload.error };
         default:
